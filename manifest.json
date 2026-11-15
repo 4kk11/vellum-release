@@ -1,2 +1,9 @@
-{ "id": "vellum", "name": "Vellum", "version": "0.1.0", "minAppVersion": "1.5.0",
-  "description": "End-to-end encrypted sync for Obsidian on Cloudflare.", "author": "4kk11", "isDesktopOnly": false }
+{
+  "id": "vellum",
+  "name": "Vellum",
+  "version": "0.2.0",
+  "minAppVersion": "1.5.0",
+  "description": "End-to-end encrypted sync for Obsidian on Cloudflare.",
+  "author": "4kk11",
+  "isDesktopOnly": false
+}
