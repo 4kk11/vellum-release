@@ -4,6 +4,11 @@ name: release
 on:
   push:
     tags: ['*']
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release を作るタグ（自動で動かなかったときの手動用）'
+        required: true
 permissions:
   contents: write
 jobs:
@@ -11,10 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag || github.ref }}
       - name: Create release
         env:
           GH_TOKEN: ${{ github.token }}
-          TAG: ${{ github.ref_name }}
+          TAG: ${{ inputs.tag || github.ref_name }}
         run: |
           files="main.js manifest.json"
           [ -f styles.css ] && files="$files styles.css"
